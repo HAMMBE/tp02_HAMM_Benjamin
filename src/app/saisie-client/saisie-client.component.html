@@ -1,0 +1,23 @@
+<p>saisie-client works!</p>
+{{title}}
+
+
+  <input [(ngModel)]="firstname">
+{{firstname}}
+<br>
+<input [(ngModel)]="lastname">
+{{lastname}}
+<br>
+<input [(ngModel)]="email">
+{{email}}
+<br>
+<input [(ngModel)]="password">
+{{password}}
+<br>
+<input [(ngModel)]="login">
+{{login}}
+<br>
+
+<br>
+  <input type="submit" [disabled]="!valid" (click)="click()"  name="submit" id="submit">
+
