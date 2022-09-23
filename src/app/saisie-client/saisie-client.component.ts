@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Client} from "../../Types/client";
+
+
 
 @Component({
   selector: 'app-saisie-client',
@@ -7,14 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaisieClientComponent implements OnInit {
 
-  constructor() { }
-  title : String = 'tp02_HAMM_Benjamin2';
-  valid : boolean = true;
-  firstname : String = 'firstname';
-  lastname : String = 'lastname';
-  email : String = 'email';
-  password : String = 'password';
-  login : String = 'login';
+  e: Client = {
+    title: '',
+    valid: true,
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    login: ''
+  };
+  @Output() newClientEvent = new EventEmitter<Client>();
+  constructor() {
+
+  }
+
 
   ngOnInit(): void {
   }
@@ -28,7 +37,7 @@ export class SaisieClientComponent implements OnInit {
   }
 
   click() {
-    this.valid = false;
-    this.title = this.firstname;
+    this.e.valid = false;
+    this.newClientEvent.emit(this.e);
   }
 }

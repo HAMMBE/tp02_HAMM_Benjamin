@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Client} from "../Types/client";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tp02_HAMM_Benjamin';
+  title = '';
+  client: Client= {
+    title: '',
+    valid: true,
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    login: ''
+  }
+
+  clientChange(e: Client) {
+    this.client = e;
+  }
 }
