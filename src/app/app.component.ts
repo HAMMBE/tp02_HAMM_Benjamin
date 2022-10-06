@@ -7,7 +7,7 @@ import {Client} from "../Types/client";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '';
+  title = 'TESTTILE';
   client: Client= {
     title: '',
     valid: true,
@@ -15,7 +15,8 @@ export class AppComponent {
     lastname: '',
     email: '',
     password: '',
-    login: ''
+    login: '',
+    phone: ''
   }
 
   clientChange(e: Client) {

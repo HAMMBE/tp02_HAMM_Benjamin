@@ -1,19 +1,21 @@
 <label for="firstname">First Name </label>
-<input id="firstname" [(ngModel)]="e.firstname">
+<input id="firstname" appCtrlData="^[A-Za-z\-]{2,20}$" [(ngModel)]="e.firstname">
 <br>
 <label for="lastname">Last Name </label>
-<input id="lastname" [(ngModel)]="e.lastname">
+<input id="lastname" appCtrlData="^[A-Za-z\-]{2,20}$" [(ngModel)]="e.lastname">
 <br>
 <label for="email">Email </label>
-<input id="email" [(ngModel)]="e.email">
+<input id="email" appCtrlData="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [(ngModel)]="e.email">
 <br>
 <label for="password">Password </label>
-<input id="password" [(ngModel)]="e.password">
+<input id="password" type="password" appCtrlData="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" [(ngModel)]="e.password">
 <br>
 <label for="login">Login </label>
-<input id="login" [(ngModel)]="e.login">
+<input id="login" appCtrlData="^[A-Za-z0-9\-]{2,20}$" [(ngModel)]="e.login">
 <br>
-
+<label for="phone">Phone </label>
+<input id="phone" appCtrlData="^[0-9]{10}$" [(ngModel)]="e.phone">
+<br>
 <br>
   <input type="submit" [disabled]="!e.valid" (click)="click()"  name="submit" id="submit">
 

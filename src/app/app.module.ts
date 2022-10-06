@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ShowFormDataComponent } from './show-form-data/show-form-data.component';
+import { CtrlDataDirective } from './ctrl-data.directive';
+import { PhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ShowFormDataComponent } from './show-form-data/show-form-data.component
     SaisieClientComponent,
     HeaderComponent,
     FooterComponent,
-    ShowFormDataComponent
+    ShowFormDataComponent,
+    CtrlDataDirective,
+    PhonePipe
   ],
   imports: [
     BrowserModule,

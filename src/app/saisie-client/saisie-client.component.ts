@@ -17,13 +17,13 @@ export class SaisieClientComponent implements OnInit {
     lastname: '',
     email: '',
     password: '',
-    login: ''
+    login: '',
+    phone: ''
   };
   @Output() newClientEvent = new EventEmitter<Client>();
   constructor() {
 
   }
-
 
   ngOnInit(): void {
   }

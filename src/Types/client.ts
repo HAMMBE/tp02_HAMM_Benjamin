@@ -1,9 +1,10 @@
 export interface Client {
-  title : String;
+  title : string;
   valid : boolean;
-  firstname : String;
-  lastname : String;
-  email : String;
-  password : String;
-  login : String;
+  firstname : string;
+  lastname : string;
+  email : string;
+  password : string;
+  login : string;
+  phone : string;
 }
