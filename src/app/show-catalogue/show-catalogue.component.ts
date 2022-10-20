@@ -11,12 +11,13 @@ import {Observable, of} from "rxjs";
 export class ShowCatalogueComponent implements OnInit {
 
   constructor(public productService : ProductService) { }
-  public myObservable$: Observable<Product[]> = of(this.productService.getProducts());
+  public ProductList$: Observable<Product[]> = of(this.productService.getProducts());
 
   productList: Product[] = [];
+  filter : string = "";
   ngOnInit(): void {
 
-    this.myObservable$.subscribe({
+    this.ProductList$.subscribe({
       next: (value : Product[]) => {
         console.log("got");
       },
