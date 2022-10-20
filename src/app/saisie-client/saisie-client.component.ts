@@ -11,6 +11,7 @@ import {Client} from "../../Types/client";
 export class SaisieClientComponent implements OnInit {
 
   e: Client = {
+    id: '-1',
     title: '',
     valid: true,
     firstname: '',

@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ShowFormDataComponent } from './show-form-data/show-form-data.component';
 import { CtrlDataDirective } from './ctrl-data.directive';
 import { PhonePipe } from './phone.pipe';
+import { ShowCatalogueComponent } from './show-catalogue/show-catalogue.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PhonePipe } from './phone.pipe';
     FooterComponent,
     ShowFormDataComponent,
     CtrlDataDirective,
-    PhonePipe
+    PhonePipe,
+    ShowCatalogueComponent
   ],
   imports: [
     BrowserModule,
