@@ -10,6 +10,8 @@ import { ShowFormDataComponent } from './show-form-data/show-form-data.component
 import { CtrlDataDirective } from './ctrl-data.directive';
 import { PhonePipe } from './phone.pipe';
 import { ShowCatalogueComponent } from './show-catalogue/show-catalogue.component';
+import {ProductService} from "./service/product.service";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,14 @@ import { ShowCatalogueComponent } from './show-catalogue/show-catalogue.componen
     ShowFormDataComponent,
     CtrlDataDirective,
     PhonePipe,
-    ShowCatalogueComponent
+    ShowCatalogueComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

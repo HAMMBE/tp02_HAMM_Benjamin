@@ -1,7 +1,7 @@
 <p>show-catalogue works!</p>
 <label for="filter">Filter : </label>
 <input id="filter" [(ngModel)]="filter">
-<div *ngFor="let  p of ProductList$ | async">
+<div *ngFor="let  p of productList$ | async">
   <div *ngIf="p.name.includes(filter) || filter == ''">
     {{p.name}}
     {{p.price}}
