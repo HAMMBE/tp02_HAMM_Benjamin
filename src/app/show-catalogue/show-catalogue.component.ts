@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../service/product.service";
 import {Product} from "../../Types/product";
 import {Observable, of} from "rxjs";
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-show-catalogue',
@@ -17,14 +18,21 @@ export class ShowCatalogueComponent implements OnInit {
 
   filter : string = "";
   ngOnInit(): void {
-
     this.productList$ = this.productService.getProducts();
-
   }
 
 
   ngOnDestory(): void {
-
   }
 
+  getFilteredProducts() : void {
+    if (this.filter == "") {
+      this.productList$ = this.productService.getProducts();
+    }
+    else {
+      this.productList$ = this.productService.getProducts().pipe(
+        map((products: Product[]) => products.filter((product: Product) => product.name.includes(this.filter)))
+      );
+    }
+  }
 }
