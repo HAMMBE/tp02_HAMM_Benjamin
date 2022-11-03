@@ -1,7 +1,4 @@
 export interface Client {
-  id :string;
-  title : string;
-  valid : boolean;
   firstname : string;
   lastname : string;
   email : string;

@@ -11,9 +11,6 @@ export class FormClientComponent implements OnInit {
 
   formClient: FormGroup;
   e: Client = {
-    id: '-1',
-    title: '',
-    valid: true,
     firstname: '',
     lastname: '',
     email: '',
@@ -63,11 +60,7 @@ export class FormClientComponent implements OnInit {
   }
 
   click() {
-    this.e.valid = false;
     const clientData: Client = {
-      id: '-1',
-      title: '',
-      valid: false,
       firstname: this.formClient.get('firstname')?.value,
       lastname: this.formClient.get('lastname')?.value,
       email: this.formClient.get('email')?.value,

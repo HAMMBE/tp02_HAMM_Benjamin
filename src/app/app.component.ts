@@ -9,9 +9,6 @@ import {Client} from "../Types/client";
 export class AppComponent {
   title = 'TESTTILE';
   client: Client= {
-    id: '-1',
-    title: '',
-    valid: true,
     firstname: '',
     lastname: '',
     email: '',

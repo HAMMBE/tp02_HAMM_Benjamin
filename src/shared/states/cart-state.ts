@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import {AddProduct, DeleteProduct} from "../actions/product-action";
+import {AddProduct, DeleteProduct} from "../actions/cart-action";
 import{CartStateModel} from "./cart-state-model";
 
 @State<CartStateModel>({
-  name: 'products',
+  name: 'cart',
   defaults: {
-    Products: []
+    products: []
   },
 })
 @Injectable()
 export class CartState {
   @Selector()
   static getProducts(state: CartStateModel) {
-    return state.Products;
+    return state.products;
   }
 
   @Action(AddProduct)
   add({ getState, patchState }: StateContext<CartStateModel>, { payload }: AddProduct) {
     const state = getState();
     patchState({
-      Products: [...state.Products, payload]
+      products: [...state.products, payload]
     });
   }
 
   @Action(DeleteProduct)
   delete({ getState, patchState }: StateContext<CartStateModel>, { payload }: DeleteProduct) {
     patchState({
-      Products: getState().Products.filter(a => a !== payload)
+      products: getState().products.filter(a => a !== payload)
     });
   }
 

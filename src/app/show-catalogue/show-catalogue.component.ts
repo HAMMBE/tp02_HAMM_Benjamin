@@ -3,6 +3,8 @@ import {ProductService} from "../service/product.service";
 import {Product} from "../../Types/product";
 import {Observable, of} from "rxjs";
 import { map } from 'rxjs/internal/operators/map';
+import {Store} from "@ngxs/store";
+import {AddProduct} from "../../shared/actions/cart-action";
 
 @Component({
   selector: 'app-show-catalogue',
@@ -11,7 +13,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class ShowCatalogueComponent implements OnInit {
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService : ProductService, private store : Store) { }
 
   productList$: Observable<Product[]> | undefined;
 
@@ -22,9 +24,6 @@ export class ShowCatalogueComponent implements OnInit {
   }
 
 
-  ngOnDestory(): void {
-  }
-
   getFilteredProducts() : void {
     if (this.filter == "") {
       this.productList$ = this.productService.getProducts();
@@ -34,5 +33,10 @@ export class ShowCatalogueComponent implements OnInit {
         map((products: Product[]) => products.filter((product: Product) => product.name.includes(this.filter)))
       );
     }
+  }
+
+  addToCart(product: Product) : void {
+    console.log(product);
+    this.store.dispatch(new AddProduct(product));
   }
 }

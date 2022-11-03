@@ -15,12 +15,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormClientComponent } from "./form-client/form-client.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
+import { NgxsModule } from '@ngxs/store';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: "", component: ShowCatalogueComponent },
   {
-    path: "register",
-    component: FormClientComponent,
+    path: "client",
+    loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
+  },{
+    path: "cart",
+    component: CartComponent
   },
   { path: "**", redirectTo: "" }
 ];
@@ -35,7 +40,8 @@ const routes: Routes = [
     CtrlDataDirective,
     PhonePipe,
     ShowCatalogueComponent,
-    FormClientComponent
+    FormClientComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,8 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    RouterOutlet
+    RouterOutlet,
+    NgxsModule.forRoot()
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

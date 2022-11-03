@@ -11,9 +11,6 @@ import {Client} from "../../Types/client";
 export class SaisieClientComponent implements OnInit {
 
   e: Client = {
-    id: '-1',
-    title: '',
-    valid: true,
     firstname: '',
     lastname: '',
     email: '',
@@ -38,7 +35,6 @@ export class SaisieClientComponent implements OnInit {
   }
 
   click() {
-    this.e.valid = false;
     this.newClientEvent.emit(this.e);
   }
 }
