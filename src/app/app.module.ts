@@ -17,6 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { NgxsModule } from '@ngxs/store';
 import { CartComponent } from './cart/cart.component';
+import { CartState} from 'src/shared/states/cart-state';
 
 const routes: Routes = [
   { path: "", component: ShowCatalogueComponent },
@@ -50,7 +51,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     RouterOutlet,
-    NgxsModule.forRoot()
+    NgxsModule.forRoot([CartState])
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

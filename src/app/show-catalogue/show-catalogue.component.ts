@@ -36,7 +36,6 @@ export class ShowCatalogueComponent implements OnInit {
   }
 
   addToCart(product: Product) : void {
-    console.log(product);
     this.store.dispatch(new AddProduct(product));
   }
 }

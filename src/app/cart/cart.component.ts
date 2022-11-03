@@ -3,7 +3,7 @@ import {Select, Store} from "@ngxs/store";
 import {CartState} from "../../shared/states/cart-state";
 import {Observable} from "rxjs";
 import {Product} from "../../Types/product";
-import {DeleteProduct} from "../../shared/actions/cart-action";
+import {AddProduct, DeleteProduct} from "../../shared/actions/cart-action";
 
 @Component({
   selector: 'app-cart',
@@ -14,13 +14,14 @@ export class CartComponent implements OnInit {
   cart$ : Observable<Product[]>;
   constructor(private store : Store) {
     this.cart$ = this.store.select(state => state.cart.products);
-    console.log(this.cart$);
   }
 
 
 
   ngOnInit() {
+    this.store.dispatch(new AddProduct({id: 1, name: "test", price: 1}));
   }
+
 
   deleteFromCart(product: Product) : void {
     this.store.dispatch(new DeleteProduct(product));
