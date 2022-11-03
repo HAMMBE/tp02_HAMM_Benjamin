@@ -15,7 +15,10 @@ export class CartState {
   static getProducts(state: CartStateModel) {
     return state.products;
   }
-
+  @Selector()
+  static getNbProductsInCart(state: CartStateModel) {
+    return state.products.length;
+  }
   @Action(AddProduct)
   add({ getState, patchState }: StateContext<CartStateModel>, { payload }: AddProduct) {
     const state = getState();
