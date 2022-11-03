@@ -19,7 +19,6 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit() {
-    this.store.dispatch(new AddProduct({id: 1, name: "test", price: 1}));
   }
 
 
