@@ -12,6 +12,18 @@ import { PhonePipe } from './phone.pipe';
 import { ShowCatalogueComponent } from './show-catalogue/show-catalogue.component';
 import {ProductService} from "./service/product.service";
 import { HttpClientModule } from '@angular/common/http';
+import { FormClientComponent } from "./form-client/form-client.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule, RouterOutlet, Routes} from "@angular/router";
+
+const routes: Routes = [
+  { path: "", component: ShowCatalogueComponent },
+  {
+    path: "register",
+    component: FormClientComponent,
+  },
+  { path: "**", redirectTo: "" }
+];
 
 @NgModule({
   declarations: [
@@ -23,13 +35,19 @@ import { HttpClientModule } from '@angular/common/http';
     CtrlDataDirective,
     PhonePipe,
     ShowCatalogueComponent,
+    FormClientComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    RouterOutlet
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }
