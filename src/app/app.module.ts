@@ -18,6 +18,7 @@ import {RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { NgxsModule } from '@ngxs/store';
 import { CartComponent } from './cart/cart.component';
 import { CartState} from 'src/shared/states/cart-state';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: "", component: ShowCatalogueComponent },
@@ -27,6 +28,10 @@ const routes: Routes = [
   },{
     path: "cart",
     component: CartComponent
+  },
+  {
+    path: "product/:id",
+    component: ProductDetailComponent
   },
   { path: "**", redirectTo: "" }
 ];
@@ -42,7 +47,8 @@ const routes: Routes = [
     PhonePipe,
     ShowCatalogueComponent,
     FormClientComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

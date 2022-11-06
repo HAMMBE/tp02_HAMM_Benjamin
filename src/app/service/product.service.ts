@@ -3,6 +3,7 @@ import {Product} from "../../Types/product";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environement/env";
 import {Observable} from "rxjs";
+import {map} from "rxjs/internal/operators/map";
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +15,6 @@ export class ProductService {
   public getProducts() : Observable<Product[]>{
     return this.http.get<Product[]>(this.env.catalogue);
   }
+
+
 }
