@@ -19,21 +19,20 @@ import { NgxsModule } from '@ngxs/store';
 import { CartComponent } from './cart/cart.component';
 import { CartState} from 'src/shared/states/cart-state';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: "", component: ShowCatalogueComponent },
+  { path: "", component: HomeComponent },
   {
     path: "client",
     loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
-  },{
-    path: "cart",
-    component: CartComponent
   },
   {
-    path: "product/:id",
-    component: ProductDetailComponent
-  },
-  { path: "**", redirectTo: "" }
+    path: "product",
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
+
+  }
+  //{ path: "**", redirectTo: "" }
 ];
 
 @NgModule({
@@ -45,10 +44,7 @@ const routes: Routes = [
     ShowFormDataComponent,
     CtrlDataDirective,
     PhonePipe,
-    ShowCatalogueComponent,
-    FormClientComponent,
-    CartComponent,
-    ProductDetailComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

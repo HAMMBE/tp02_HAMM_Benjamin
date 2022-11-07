@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: "register", component: FormClientComponent }
 ];
 @NgModule({
-  declarations: [],
+  declarations: [
+    FormClientComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
