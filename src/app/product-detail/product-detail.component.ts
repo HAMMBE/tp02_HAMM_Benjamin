@@ -4,6 +4,8 @@ import {ProductService} from "../service/product.service";
 import {Observable} from "rxjs";
 import {Product} from "../../Types/product";
 import {map} from "rxjs/internal/operators/map";
+import {AddProduct} from "../../shared/actions/cart-action";
+import {Store} from "@ngxs/store";
 
 @Component({
   selector: 'app-product-detail',
@@ -13,12 +15,15 @@ import {map} from "rxjs/internal/operators/map";
 export class ProductDetailComponent implements OnInit {
   id : number = 0;
   product: Product | undefined;
-  constructor(private route : ActivatedRoute, private productService : ProductService ){ }
+  constructor(private route : ActivatedRoute, private productService : ProductService, private store : Store ){ }
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProducts().subscribe((data) => {
       this.product = data.find(p => p.id == this.route.snapshot.params['id']);
     });
+  }
+  addToCart(product: Product) : void {
+    this.store.dispatch(new AddProduct(product));
   }
 }
